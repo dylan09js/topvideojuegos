@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo de Videojuegos</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #121212; color: white; margin: 0; padding: 0; }
+    .header { background: #1f1f1f; padding: 20px; text-align: center; font-size: 24px; }
+    .catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
+    .juego { background: #2c2c2c; border-radius: 10px; overflow: hidden; }
+    .juego img { width: 100%; height: 200px; object-fit: cover; }
+    .juego-info { padding: 10px; }
+    .juego-info h3 { margin-top: 0; }
+
+    /* Comentarios */
+    .comentarios { background: #1f1f1f; padding: 20px; margin: 20px; border-radius: 10px; }
+    .comentarios h2 { margin-top: 0; }
+    #comentario { width: 100%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 10px; }
+    #btnEnviar { padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .lista-comentarios { margin-top: 20px; }
+    .comentario-item { background: #2c2c2c; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+<div class="header">Mi Catálogo de Juegos</div>
+
+<div class="catalogo">
+  <div class="juego">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/05/FortniteCover.jpg" alt="Fortnite">
+    <div class="juego-info">
+      <h3>Fortnite</h3>
+      <p>Battle Royale multijugador lleno de acción y construcción.</p>
+    </div>
+  </div>
+
+  <div class="juego">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Call_of_Duty_Warzone_cover_art.jpg" alt="Warzone">
+    <div class="juego-info">
+      <h3>Call of Duty: Warzone</h3>
+      <p>Intenso Battle Royale basado en el universo Call of Duty.</p>
+    </div>
+  </div>
+
+  <div class="juego">
+    <img src="https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png" alt="Minecraft">
+    <div class="juego-info">
+      <h3>Minecraft</h3>
+      <p>Juego de construcción, supervivencia y aventuras en mundos infinitos.</p>
+    </div>
+  </div>
+
+  <div class="juego">
+    <img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Garena_Free_Fire.png" alt="Free Fire">
+    <div class="juego-info">
+      <h3>Free Fire</h3>
+      <p>Rápido Battle Royale en dispositivos móviles.</p>
+    </div>
+  </div>
+
+  <div class="juego">
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Roblox_logo_2017.svg" alt="Roblox">
+    <div class="juego-info">
+      <h3>Roblox</h3>
+      <p>Plataforma de creación de juegos y experiencias multijugador.</p>
+    </div>
+  </div>
+
+  <div class="juego">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png" alt="GTA V">
+    <div class="juego-info">
+      <h3>GTA V</h3>
+      <p>Aventura de mundo abierto en la ciudad ficticia de Los Santos.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Sección de Comentarios -->
+<div class="comentarios">
+  <h2>Comentarios</h2>
+  <textarea id="comentario" placeholder="Escribe tu comentario aquí..."></textarea><br>
+  <button id="btnEnviar">Enviar Comentario</button>
+
+  <div class="lista-comentarios" id="listaComentarios">
+    <!-- Comentarios aparecerán aquí -->
+  </div>
+</div>
+
+<script>
+  const btnEnviar = document.getElementById('btnEnviar');
+  const comentarioInput = document.getElementById('comentario');
+  const listaComentarios = document.getElementById('listaComentarios');
+
+  btnEnviar.addEventListener('click', () => {
+    const texto = comentarioInput.value.trim();
+    if (texto !== "") {
+      const nuevoComentario = document.createElement('div');
+      nuevoComentario.className = 'comentario-item';
+      nuevoComentario.textContent = texto;
+      listaComentarios.appendChild(nuevoComentario);
+      comentarioInput.value = ""; // Limpiar textarea
+    } else {
+      alert("Por favor, escribe un comentario antes de enviarlo.");
+    }
+  });
+</script>
+
+</body>
+</html>
